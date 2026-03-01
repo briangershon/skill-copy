@@ -27,6 +27,14 @@ The tool:
 
     go build -o skill-copy .
 
+## Publishing a new release
+
+Merge changes to `main`, then tag and push:
+
+    make tag TAG=v1.2.3
+
+This creates the git tag and pushes it to origin. Once pushed, `go install github.com/briangershon/skill-copy@latest` will resolve to the new tag.
+
 ## Example: Install Anthropic's skill-creator
 
 ### Install skills for a project

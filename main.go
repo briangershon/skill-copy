@@ -10,6 +10,8 @@ import (
 	"strings"
 )
 
+var version = "dev" // overridden at build time via -ldflags
+
 type GitHubEntry struct {
 	Type        string `json:"type"`
 	Name        string `json:"name"`
@@ -58,7 +60,7 @@ func listContents(owner, repo, branch, path string) ([]GitHubEntry, error) {
 	if err != nil {
 		return nil, fmt.Errorf("creating request: %w", err)
 	}
-	req.Header.Set("User-Agent", "skill-copy/1.0")
+	req.Header.Set("User-Agent", "skill-copy/"+version)
 
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -84,7 +86,7 @@ func downloadFile(url, destPath string) error {
 	if err != nil {
 		return fmt.Errorf("creating request: %w", err)
 	}
-	req.Header.Set("User-Agent", "skill-copy/1.0")
+	req.Header.Set("User-Agent", "skill-copy/"+version)
 
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
@@ -139,6 +141,11 @@ func copyDir(owner, repo, branch, remotePath, localDir string) error {
 }
 
 func main() {
+	if len(os.Args) == 2 && (os.Args[1] == "--version" || os.Args[1] == "-version") {
+		fmt.Println("skill-copy", version)
+		os.Exit(0)
+	}
+
 	if len(os.Args) != 3 {
 		fmt.Fprintf(os.Stderr, "Usage: skill-copy <github-tree-url> <destination>\n")
 		fmt.Fprintf(os.Stderr, "Example: skill-copy https://github.com/anthropics/skills/tree/main/skills/skill-creator ./claude/skills\n")
