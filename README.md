@@ -40,5 +40,5 @@ This copies the `skill-creator` skill into `~/.claude/skills/skill-creator/`.
 
 ## Requirements
 
-- Go 1.23+
+- Go 1.16+
 - Public GitHub repositories only (no authentication required)

@@ -1,3 +1,3 @@
 module github.com/briangershon/skill-copy
 
-go 1.23
+go 1.16
