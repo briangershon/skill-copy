@@ -10,6 +10,12 @@ For an example `Dockerfile` that installs `skill-copy` and adds Anthropic's [ski
 
 ## Install
 
+**Option 1: Download a pre-built binary** (no Go required)
+
+Download the latest release for your platform from the [GitHub Releases page](https://github.com/briangershon/skill-copy/releases/latest), extract the archive, and move the `skill-copy` binary to a directory on your `PATH`.
+
+**Option 2: Install with Go**
+
     # first make sure your GOPATH is set
     go install github.com/briangershon/skill-copy@latest
 
@@ -41,7 +47,7 @@ This creates the git tag and pushes it to origin. Once pushed, `go install githu
 
     skill-copy https://github.com/anthropics/skills/tree/main/skills/skill-creator ./.claude/skills
 
-### Install skills for a user
+### Install skills for a user (in their home folder`)
 
     skill-copy https://github.com/anthropics/skills/tree/main/skills/skill-creator ~/.claude/skills
 
