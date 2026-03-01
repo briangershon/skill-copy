@@ -1,16 +1,17 @@
 # skill-copy
 
-A CLI tool that copies a single Agent skill file from a GitHub repository folder into a local agent's skills directory.
+A CLI tool that copies a single [Agent Skill](https://agentskills.io) file from a GitHub repository folder into a local agent's skills directory.
 
-Makes it easy to initialize a project with the skills you need, such as `skill-creator` for creating new skills.`
+Makes it easy to initialize a project with the skills you need, such as `skill-creator` for creating new skills.
+
+Each agent has a different skills directory.
+
+For an example `Dockerfile` that installs `skill-copy` and adds Anthropic's [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) skill, see [here](https://github.com/briangershon/agent-workspace/blob/main/Dockerfile).
 
 ## Install
 
+    # first make sure your GOPATH is set
     go install github.com/briangershon/skill-copy@latest
-
-Or copy the binary to a directory on your PATH:
-
-    go build -o skill-copy . && mv skill-copy /usr/local/bin/
 
 ## Usage
 
