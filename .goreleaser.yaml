@@ -6,7 +6,7 @@ builds:
     ldflags:
       - -X main.version={{.Version}}
 archives:
-  - format: tar.gz
+  - formats: [tar.gz]
     format_overrides:
       - goos: windows
-        format: zip
+        formats: [zip]
