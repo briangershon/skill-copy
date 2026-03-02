@@ -4,6 +4,8 @@ A CLI tool that copies a single [Agent Skill](https://agentskills.io) file from 
 
 Makes it easy to initialize a project with the skills you need.
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/briangershon/skill-copy.svg)](https://pkg.go.dev/github.com/briangershon/skill-copy)
+
 ## Usage
 
     skill-copy <github-tree-url> <destination>
